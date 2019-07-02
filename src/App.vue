@@ -1,28 +1,45 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <header>
+      <h1 align="center">UAT Automation</h1>
+    </header>
+    <nav>
+      <Navigation></Navigation>
+    </nav>
+    <section>
+      <TestExecution v-if="currentComponent == 'TestExecution'"></TestExecution>
+      <TestHistory v-else-if ="currentComponent == 'TestHistory'"></TestHistory>
+    </section>
+    <footer>
+      copyright 2019 @muzi
+    </footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  import eventBus from './EventBus'
+  import Navigation from "@/components/Navigation";
+  import TestExecution from "@/components/TestExecution";
+  import TestHistory from "@/components/TestHistory";
+  export default {
+    name: "App",
+    components: {TestHistory, TestExecution, Navigation},
+    data () {
+      return {
+        currentComponent: "TestExecution",
+      }
+    },
+    methods: {
+      changeCurrentComponent: function (param1) {
+        this.currentComponent = param1
+      }
+    },
+    created() {
+      eventBus.$on("changeTestExecution", this.changeCurrentComponent)
+      eventBus.$on("changeTestHistory", this.changeCurrentComponent)
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
