@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="container">
         <TestScenario></TestScenario>
         <TestCase></TestCase>
-        <button @click="execution">실 행</button>
+        <button @click="execution" type="button" class="btn btn-secondary btn-lg btn-block">실 행</button>
     </div>
 </template>
 

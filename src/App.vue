@@ -10,7 +10,7 @@
       <TestExecution v-if="currentComponent == 'TestExecution'"></TestExecution>
       <TestHistory v-else-if ="currentComponent == 'TestHistory'"></TestHistory>
     </section>
-    <footer>
+    <footer align ="center">
       copyright 2019 @muzi
     </footer>
   </div>

@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <table border="1">
-            <thead>
+    <div class="container">
+        <h3>테스트 케이스</h3>
+        <table class="table table-striped" >
+            <thead class="thead-dark">
             <th>케이스ID</th>
             <th>케이스명</th>
             <th>시나리오ID</th>

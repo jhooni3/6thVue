@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="container">
         <h3>테스트 시나리오</h3>
-        <table border="1">
-            <thead>
+        <table class="table table-striped" >
+            <thead class="thead-dark">
             <th>시나리오ID</th>
             <th>시나리오명</th>
             </thead>

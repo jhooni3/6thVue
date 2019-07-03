@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <table border="1">
-            <thead>
+    <div class="container">
+        <h3>테스트 실행내역</h3>
+        <table class="table table-striped" >
+            <thead class="thead-dark">
             <th>일자</th>
             <th>시각</th>
             <th>시나리오아이디</th>
