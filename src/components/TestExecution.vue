@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <TestScenario></TestScenario>
-        <TestCase></TestCase>
+        <TestCase :select-ts-id="this.$store.state.selectTsId"></TestCase>
         <button @click="execution" type="button" class="btn btn-secondary btn-lg btn-block">실 행</button>
     </div>
 </template>

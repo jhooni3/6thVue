@@ -7,8 +7,9 @@
       <Navigation></Navigation>
     </nav>
     <section>
-      <TestExecution v-if="currentComponent == 'TestExecution'"></TestExecution>
-      <TestHistory v-else-if ="currentComponent == 'TestHistory'"></TestHistory>
+      <component :is="this.$store.state.currentComponent"></component>
+<!--      <TestExecution v-if="currentComponent == 'TestExecution'"></TestExecution>-->
+<!--      <TestHistory v-else-if ="currentComponent == 'TestHistory'"></TestHistory>-->
     </section>
     <footer align ="center">
       copyright 2019 @muzi
@@ -26,12 +27,12 @@
     components: {TestHistory, TestExecution, Navigation},
     data () {
       return {
-        currentComponent: "TestExecution",
+
       }
     },
     methods: {
       changeCurrentComponent: function (param1) {
-        this.currentComponent = param1
+        this.$store.state.currentComponent = param1
       }
     },
     created() {

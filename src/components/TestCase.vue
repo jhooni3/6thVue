@@ -8,7 +8,7 @@
             <th>시나리오ID</th>
             </thead>
             <tbody>
-            <tr v-for="testCase in testCaseList" :key ="testCase.tcId">
+            <tr v-for="testCase in filteredTcList" :key ="testCase.tcId">
                 <td>{{testCase.tcId}}</td>
                 <td>{{testCase.tcName}}</td>
                 <td>{{testCase.tsId}}</td>
@@ -22,33 +22,34 @@
     import eventBus from '../EventBus'
     export default {
         name: "TestCase",
+        props: [
+            "selectTsId"
+        ],
         data () {
             return {
-                originTestCaseList:[
-                    {tcId:"tc1", tcName:"테스트케이스1", tsId: "ts1"},
-                    {tcId:"tc2", tcName:"테스트케이스2", tsId: "ts2"},
-                    {tcId:"tc3", tcName:"테스트케이스3", tsId: "ts2"},
-                    {tcId:"tc4", tcName:"테스트케이스4", tsId: "ts3"},
-                    {tcId:"tc5", tcName:"테스트케이스5", tsId: "ts4"},
+                testCaseListFilter:[
                 ],
-                testCaseList:[
+            }
+        },
+        computed: {
+            filteredTcList() {
 
-                ],
+                if( this.selectTsId != ""){
+                    return this.$store.state.testCaseList.filter( (row) => {
+                        return row.tsId === this.selectTsId
+                    })
+                }
+                else{
+                    return [...this.$store.state.testCaseList]
+                }
 
             }
         },
         created () {
-            this.testCaseList = [...this.originTestCaseList]    //복
-            eventBus.$on("clickTsId", this.filterTestCase)
+            this.testCaseListFilter = [...this.$store.state.testCaseList]    //복
+            // eventBus.$on("clickTsId", this.filterTestCase)
         },
         methods:{
-            filterTestCase: function(tsId) {
-                console.log("filterTestCase : "+ tsId)
-                //tsId가 동일한놈만 원본데이터를
-                this.testCaseList = this.originTestCaseList.filter(function (row) {
-                    return row.tsId === tsId
-                })
-            }
         }
     }
 </script>

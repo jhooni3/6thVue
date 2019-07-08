@@ -15,17 +15,28 @@
 </template>
 
 <script>
+    import eventBus from '../EventBus'
+    import Constant from "@/Constant";
     export default {
         name: "navigation",
         methods: {
             changeTestExecution () {
-                this.eventBus.$emit("changeTestExecution", "TestExecution") // 첫번째 식별자 , 두번째 전달 데이터
+                //eventBus.$emit("changeTestExecution", "TestExecution") // 첫번째 식별자 , 두번째 전달 데이터
+                this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
+                    currentComponent : "TestExecution"
+                })
             },
             changeTestHistory () {
-                this.eventBus.$emit("changeTestHistory","TestHistory")
+                //eventBus.$emit("changeTestHistory","TestHistory")
+                this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
+                    currentComponent : "TestHistory"
+                })
             },
             changeETC: function () {
-                this.eventBus.$emit("changeETC","changeETC")
+                //eventBus.$emit("changeETC","changeETC")
+                this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
+                    currentComponent : "TestHistory"
+                })
             }
         }
     }
