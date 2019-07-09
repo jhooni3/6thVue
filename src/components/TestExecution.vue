@@ -1,8 +1,23 @@
 <template>
-    <div class="container">
-        <TestScenario></TestScenario>
-        <TestCase :select-ts-id="this.$store.state.selectTsId"></TestCase>
-        <button @click="execution" type="button" class="btn btn-secondary btn-lg btn-block">실 행</button>
+    <div>
+        <el-row>
+            <el-col :span="12">
+                <div>
+                    <TestScenario></TestScenario>
+                </div>
+            </el-col>
+            <el-col :span="12">
+                <div>
+                    <TestCase :select-ts-id="this.$store.state.selectTsId"></TestCase>
+                </div>
+            </el-col>
+        </el-row>
+
+
+        <el-button @click="execution" type="info" plain>실 행</el-button>
+
+
+<!--        <button @click="execution" type="button" class="btn btn-secondary btn-lg btn-block">실 행</button>-->
     </div>
 </template>
 

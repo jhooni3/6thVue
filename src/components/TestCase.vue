@@ -1,20 +1,33 @@
 <template>
-    <div class="container">
-        <h3>테스트 케이스</h3>
-        <table class="table table-striped" >
-            <thead class="thead-dark">
-            <th>케이스ID</th>
-            <th>케이스명</th>
-            <th>시나리오ID</th>
-            </thead>
-            <tbody>
-            <tr v-for="testCase in filteredTcList" :key ="testCase.tcId">
-                <td>{{testCase.tcId}}</td>
-                <td>{{testCase.tcName}}</td>
-                <td>{{testCase.tsId}}</td>
-            </tr>
-            </tbody>
-        </table>
+    <div >
+<!--        <h3>테스트 케이스</h3>-->
+<!--        <table class="table table-striped" >-->
+<!--            <thead class="thead-dark">-->
+<!--            <th>케이스ID</th>-->
+<!--            <th>케이스명</th>-->
+<!--            <th>시나리오ID</th>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr v-for="testCase in filteredTcList" :key ="testCase.tcId">-->
+<!--                <td>{{testCase.tcId}}</td>-->
+<!--                <td>{{testCase.tcName}}</td>-->
+<!--                <td>{{testCase.tsId}}</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+
+        <h5><i class="el-icon-check"></i> 테스트 케이스</h5>
+        <el-divider></el-divider>
+
+        <el-table
+                :data="filteredTcList"
+                style="width: 100%">
+            <el-table-column prop="tcId" label="케이스ID" ></el-table-column>
+            <el-table-column prop="tcName" label="케이스명" ></el-table-column>
+            <el-table-column prop="tsId" label="시나리오ID" ></el-table-column>
+        </el-table>
+
     </div>
 </template>
 

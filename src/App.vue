@@ -1,19 +1,34 @@
 <template>
   <div>
-    <header>
+<!--    <header>-->
+<!--      <h1 align="center">UAT Automation</h1>-->
+<!--    </header>-->
+<!--    <nav>-->
+<!--      <Navigation></Navigation>-->
+<!--    </nav>-->
+<!--    <section>-->
+<!--      <component :is="this.$store.state.currentComponent"></component>-->
+<!--&lt;!&ndash;      <TestExecution v-if="currentComponent == 'TestExecution'"></TestExecution>&ndash;&gt;-->
+<!--&lt;!&ndash;      <TestHistory v-else-if ="currentComponent == 'TestHistory'"></TestHistory>&ndash;&gt;-->
+<!--    </section>-->
+<!--    <footer align ="center">-->
+<!--      copyright 2019 @muzi-->
+<!--    </footer>-->
+
+    <el-container>
       <h1 align="center">UAT Automation</h1>
-    </header>
-    <nav>
-      <Navigation></Navigation>
-    </nav>
-    <section>
-      <component :is="this.$store.state.currentComponent"></component>
-<!--      <TestExecution v-if="currentComponent == 'TestExecution'"></TestExecution>-->
-<!--      <TestHistory v-else-if ="currentComponent == 'TestHistory'"></TestHistory>-->
-    </section>
-    <footer align ="center">
-      copyright 2019 @muzi
-    </footer>
+      <el-header>
+
+        <Navigation></Navigation>
+      </el-header>
+      <el-main>
+        <component :is="this.$store.state.currentComponent"></component>
+        <el-divider></el-divider>
+      </el-main>
+      <el-footer>
+        copyright 2019 @muzi
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
@@ -43,4 +58,36 @@
 </script>
 
 <style>
+  .el-header, .el-footer {
+    /*background-color: #B3C0D1;*/
+    color: #333;
+    text-align: center;
+  }
+
+  .el-aside {
+    /*background-color: #D3DCE6;*/
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
+
+  .el-main {
+    /*background-color: #E9EEF3;*/
+    color: #333;
+    /*text-align: center;*/
+    /*line-height: 160px;*/
+  }
+
+  body > .el-container {
+    margin-bottom: 40px;
+  }
+
+  .el-container:nth-child(5) .el-aside,
+  .el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+  }
+
+  .el-container:nth-child(7) .el-aside {
+    line-height: 320px;
+  }
 </style>
