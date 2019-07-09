@@ -24,6 +24,9 @@
             <el-menu-item index="1">  테스트 실행</el-menu-item>
             <el-menu-item index="2">실행 내역</el-menu-item>
         </el-menu>
+
+
+
     </div>
 </template>
 
@@ -34,7 +37,7 @@
         name: "navigation",
         data() {
             return {
-                activeIndex: '1'
+                activeIndex: '1',
             }
         },
 
@@ -67,6 +70,11 @@
                 else if (key == "2"){
                     this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
                         currentComponent : "TestHistory"
+                    })
+                }
+                else if (key == "0"){
+                    this.$store.commit(Constant.IS_COLLAPSE, {
+                        isCollapse : !this.$store.state.isCollapse
                     })
                 }
 

@@ -6,6 +6,9 @@ export default {
     },
     [Constant.SELECT_TS_ID]: (state, payload) => {
         state.selectTsId = payload.selectTsId
+    },
+    [Constant.IS_COLLAPSE]: (state, payload) => {
+        state.isCollapse = payload.isCollapse
     }
 
 }

@@ -16,15 +16,19 @@
 <!--    </footer>-->
 
     <el-container>
-      <h1 align="center">UAT Automation</h1>
+<!--      <h1 align="center">UAT Automation</h1>-->
       <el-header>
-
         <Navigation></Navigation>
       </el-header>
-      <el-main>
-        <component :is="this.$store.state.currentComponent"></component>
-        <el-divider></el-divider>
-      </el-main>
+      <el-container>
+        <el-aside>
+          <AsideMenu></AsideMenu>
+        </el-aside>
+        <el-main>
+          <component :is="this.$store.state.currentComponent"></component>
+          <el-divider></el-divider>
+        </el-main>
+      </el-container>
       <el-footer>
         copyright 2019 @muzi
       </el-footer>
@@ -37,9 +41,10 @@
   import Navigation from "@/components/Navigation";
   import TestExecution from "@/components/TestExecution";
   import TestHistory from "@/components/TestHistory";
+  import AsideMenu from "./components/AsideMenu";
   export default {
     name: "App",
-    components: {TestHistory, TestExecution, Navigation},
+    components: {AsideMenu, TestHistory, TestExecution, Navigation},
     data () {
       return {
 
@@ -60,8 +65,10 @@
 <style>
   .el-header, .el-footer {
     /*background-color: #B3C0D1;*/
+    padding: 0 0;
     color: #333;
     text-align: center;
+
   }
 
   .el-aside {

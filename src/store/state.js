@@ -20,4 +20,5 @@ export default {
     ],
     currentComponent: "TestExecution",
     selectTsId: "",
+    isCollapse: false
 };
