@@ -17,11 +17,16 @@
 <!--        </table>-->
 
 
-        <h5><i class="el-icon-check"></i> 테스트 케이스</h5>
+        <h3><i class="el-icon-check"></i> 테스트 케이스</h3>
         <el-divider></el-divider>
 
         <el-table
+                v-loading="loading"
+                element-loading-text="Loading..."
+                element-loading-spinner="el-icon-loading"
+                element-loading-background="rgba(0, 0, 0, 0.8)"
                 :data="filteredTcList"
+                :accesskey="filteredTcList.tcId"
                 style="width: 100%">
             <el-table-column prop="tcId" label="케이스ID" ></el-table-column>
             <el-table-column prop="tcName" label="케이스명" ></el-table-column>
@@ -32,7 +37,6 @@
 </template>
 
 <script>
-    import eventBus from '../EventBus'
     export default {
         name: "TestCase",
         props: [
@@ -42,6 +46,7 @@
             return {
                 testCaseListFilter:[
                 ],
+                loading : true
             }
         },
         computed: {
@@ -59,7 +64,7 @@
             }
         },
         created () {
-            this.testCaseListFilter = [...this.$store.state.testCaseList]    //복
+            this.testCaseListFilter = [...this.$store.state.testCaseList]    //복사
             // eventBus.$on("clickTsId", this.filterTestCase)
         },
         methods:{

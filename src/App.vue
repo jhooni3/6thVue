@@ -17,27 +17,30 @@
 
     <el-container>
 <!--      <h1 align="center">UAT Automation</h1>-->
-      <el-header>
-        <Navigation></Navigation>
-      </el-header>
+
+      <el-aside v-bind:style="{ width : this.$store.state.asideWidth }">
+        <AsideMenu></AsideMenu>
+      </el-aside>
+
       <el-container>
-        <el-aside>
-          <AsideMenu></AsideMenu>
-        </el-aside>
+        <el-header>
+          <Navigation></Navigation>
+        </el-header>
+
         <el-main>
           <component :is="this.$store.state.currentComponent"></component>
-          <el-divider></el-divider>
         </el-main>
-      </el-container>
+
       <el-footer>
+        <el-divider></el-divider>
         copyright 2019 @muzi
       </el-footer>
+      </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-  import eventBus from './EventBus'
   import Navigation from "@/components/Navigation";
   import TestExecution from "@/components/TestExecution";
   import TestHistory from "@/components/TestHistory";
@@ -56,8 +59,6 @@
       }
     },
     created() {
-      eventBus.$on("changeTestExecution", this.changeCurrentComponent)
-      eventBus.$on("changeTestHistory", this.changeCurrentComponent)
     }
   }
 </script>
@@ -65,7 +66,8 @@
 <style>
   .el-header, .el-footer {
     /*background-color: #B3C0D1;*/
-    padding: 0 0;
+    padding: 0!important;
+    margin : 0 0px;
     color: #333;
     text-align: center;
 
@@ -74,7 +76,8 @@
   .el-aside {
     /*background-color: #D3DCE6;*/
     color: #333;
-    text-align: center;
+    /*width : 200px;*/
+    text-align: left;
     line-height: 200px;
   }
 
@@ -89,12 +92,5 @@
     margin-bottom: 40px;
   }
 
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
 
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
 </style>

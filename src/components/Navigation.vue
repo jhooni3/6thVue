@@ -20,7 +20,7 @@
                 text-color="#fff"
                 active-text-color="#ffd04b">
 
-            <el-menu-item index="0"><i class="el-icon-ice-cream-round"></i> </el-menu-item>
+            <el-menu-item index="0"><el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar></el-menu-item>
             <el-menu-item index="1">  테스트 실행</el-menu-item>
             <el-menu-item index="2">실행 내역</el-menu-item>
         </el-menu>
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-    import eventBus from '../EventBus'
     import Constant from "@/Constant";
     export default {
         name: "navigation",
@@ -61,7 +60,6 @@
                 })
             },
             handleSelect(key, keyPath) {
-                console.log(key, keyPath);
                 if(key == "1"){
                     this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
                         currentComponent : "TestExecution"
@@ -74,8 +72,10 @@
                 }
                 else if (key == "0"){
                     this.$store.commit(Constant.IS_COLLAPSE, {
-                        isCollapse : !this.$store.state.isCollapse
+                        isCollapse : !this.$store.state.isCollapse,
+                        asideWidth : this.$store.state.isCollapse ? "210px" : "70px"
                     })
+
                 }
 
             }

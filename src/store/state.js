@@ -20,5 +20,6 @@ export default {
     ],
     currentComponent: "TestExecution",
     selectTsId: "",
-    isCollapse: false
+    isCollapse: false,
+    asideWidth: "210px"
 };

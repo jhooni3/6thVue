@@ -13,9 +13,10 @@
             </el-col>
         </el-row>
 
-
+        <div align="right">
+        <br/>
         <el-button @click="execution" type="info" plain>실 행</el-button>
-
+        </div>
 
 <!--        <button @click="execution" type="button" class="btn btn-secondary btn-lg btn-block">실 행</button>-->
     </div>

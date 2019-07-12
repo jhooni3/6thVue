@@ -16,11 +16,12 @@
 <!--        </table>-->
 
 
-        <h5><i class="el-icon-check"></i> 테스트 시나리오</h5>
+        <h3><i class="el-icon-check"></i> 테스트 시나리오</h3>
         <el-divider></el-divider>
 
         <el-table
                 :data="this.$store.state.testScenarioList"
+                :accesskey="this.$store.state.testScenarioList.tsId"
                 @current-change="handleCurrentChange"
                 style="width: 100%">
             <el-table-column prop="tsId" label="시나리오ID" ></el-table-column>
@@ -31,7 +32,6 @@
 </template>
 
 <script>
-    import eventBus from '../EventBus'
     import Constant from '../Constant'
     export default {
         name: "TestScenario",
