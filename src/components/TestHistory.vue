@@ -20,13 +20,17 @@
 </template>
 
 <script>
+    import Constant from "../Constant"
     export default {
         name: "TestHistory",
         data() {
             return {
 
             }
-        }
+        },
+        mounted(){
+            this.$store.dispatch(Constant.API_CALL_TH_LIST, {})
+        },
     }
 </script>
 

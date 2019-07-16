@@ -27,6 +27,9 @@
 
             }
         },
+        mounted(){
+          this.$store.dispatch(Constant.API_CALL_TS_LIST, {})
+        },
         methods:{
             clickTsId : function (tsId) {
                 //eventBus.$emit("clickTsId", tsId)

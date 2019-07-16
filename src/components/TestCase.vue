@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    import Constant from "../Constant"
     import eventBus from '../EventBus'
     export default {
         name: "TestCase",
@@ -46,6 +47,10 @@
             }
         },
         created () {
+
+        },
+        mounted(){
+            this.$store.dispatch(Constant.API_CALL_TC_LIST, {})
             this.testCaseListFilter = [...this.$store.state.testCaseList]    //복
             // eventBus.$on("clickTsId", this.filterTestCase)
         },
