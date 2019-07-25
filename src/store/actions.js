@@ -34,16 +34,58 @@ export default {
 
     //thList : [GET] /simple/th/List
     [Constant.API_CALL_TH_LIST]: (store, payload) => {
+        store.commit(Constant.CHANGE_IS_LOADING, {
+            isLoading: true
+        })
+
         axios.get(Config.LOCAL_SERVER_BASE_URL + "/simple/th/list")
             .then((response) =>{
                 console.log(response)
                 store.commit(Constant.SET_TH_LIST, {
                     thList: response.data.grid01
                 })
+
+
+                store.commit(Constant.CHANGE_IS_LOADING, {
+                    isLoading: false
+                })
             })
             .catch((error)=>{
                 console.log(error)
+
+                store.commit(Constant.CHANGE_IS_LOADING, {
+                    isLoading: false
+                })
             })
 
+    },
+
+    //로그인 : [POST] /simple/login
+    Login : (store, payload) => {
+
+        store.commit(Constant.CHANGE_IS_LOADING, {
+            isLoading: true
+        })
+
+        axios.post( Config.LOCAL_SERVER_BASE_URL + "/simple/login", {
+            id: payload.id,
+            password : payload.password
+
+        }).then((response) =>{
+            console.log(response)
+            payload.router.push({
+                name: "TestExecution"
+            })
+
+            store.commit(Constant.CHANGE_IS_LOADING, {
+                isLoading: false
+            })
+
+        }).catch((error)=>{
+            console.log(error)
+            store.commit(Constant.CHANGE_IS_LOADING, {
+                isLoading: false
+            })
+        })
     }
 }

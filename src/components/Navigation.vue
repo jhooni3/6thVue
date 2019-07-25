@@ -22,21 +22,36 @@
         methods: {
             changeTestExecution () {
                 //eventBus.$emit("changeTestExecution", "TestExecution") // 첫번째 식별자 , 두번째 전달 데이터
-                this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
-                    currentComponent : "TestExecution"
+
+                // this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
+                //     currentComponent : "TestExecution"
+                // })
+
+                this.$router.push({
+                    name : "TestExecution"
                 })
             },
             changeTestHistory () {
                 //eventBus.$emit("changeTestHistory","TestHistory")
-                this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
-                    currentComponent : "TestHistory"
-                })
+
+
+                // this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
+                //     currentComponent : "TestHistory"
+                // })
+
+                this.$router.push({
+                    name : "TestHistory"
+                });
             },
             changeETC: function () {
                 //eventBus.$emit("changeETC","changeETC")
-                this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
-                    currentComponent : "TestHistory"
-                })
+                // this.$store.commit(Constant.CHANGE_CURRENT_COMPONENT, {
+                //     currentComponent : "TestHistory"
+                // })
+
+                this.$router.push({
+                    name : "NotFound"
+                });
             }
         }
     }

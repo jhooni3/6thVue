@@ -18,6 +18,7 @@ export default {
         // {tcId: "tc4", tcName: "테스트케이스4", tsId: "ts3"},
         // {tcId: "tc5", tcName: "테스트케이스5", tsId: "ts4"},
     ],
-    currentComponent: "TestExecution",
+    // currentComponent: "TestExecution",
     selectTsId: "",
+    isLoading: false,
 };
