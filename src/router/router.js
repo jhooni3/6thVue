@@ -24,8 +24,6 @@ const router = new VueRouter({
                 {path: "test-history", name: "TestHistory", component: TestHistory }
             ]
         },
-
-
         //NotFound
         {path: "*", name: "NotFound", component: NotFound},
 
